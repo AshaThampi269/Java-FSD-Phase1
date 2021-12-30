@@ -1,0 +1,90 @@
+//avoid if space is a concern
+public class MergeSortProgram
+{  
+    //function to merge the subarrays of array[]
+    void merge(int array[], int start, int middle, int end)    
+    {    
+        int i, j, k;  //i - first sub-array, j - second sub-array, k - merged sub-array
+        
+        //split the array to 2 parts
+        int part1 = middle - start + 1;    
+        int part2 = end - middle;    
+      
+        //create temporary Arrays
+        int LeftArray[] = new int[part1];  
+        int RightArray[] = new int[part2];  
+      
+        //copy data to temporary arrays
+        for (i = 0; i < part1; i++)    
+        LeftArray[i] = array[start + i];    
+        for (j = 0; j < part2; j++)    
+        RightArray[j] = array[middle + 1 + j];    
+      
+        i = 0; //initial index of first sub-array  
+        j = 0; //initial index of second sub-array   
+        k = start;  //initial index of merged sub-array 
+      
+        while (i < part1 && j < part2)    
+        {    
+            if(LeftArray[i] <= RightArray[j])    
+            {    
+                array[k] = LeftArray[i];    
+                i++;    
+            }    
+            else    
+            {    
+                array[k] = RightArray[j];    
+                j++;    
+            }    
+            k++;    
+        }    
+    
+        while (i < part1)    
+        {    
+            array[k] = LeftArray[i];    
+            i++;    
+            k++;    
+        }    
+      
+        while (j < part2)    
+        {    
+            array[k] = RightArray[j];    
+            j++;    
+            k++;    
+        }    
+    }    
+  
+    void mergeSort(int array[], int start, int end)  
+    {  
+        if (start < end)   
+        {  
+            int middle = (start + end) / 2;  
+            mergeSort(array, start, middle);  
+            mergeSort(array, middle + 1, end);  
+            merge(array, start, middle, end);  
+        }     
+    }  
+  
+    //function to print the array  
+    void printArray(int array[], int size)  
+    {  
+        for (int i = 0; i < size; i++)
+            System.out.print(array[i] + " ");  
+    }  
+  
+    public static void main(String args[])  
+    {  
+        int array[] = { 11, 30, 24, 7, 31, 16, 39, 41 };  
+        int size = array.length;  
+        
+        MergeSortProgram msp = new MergeSortProgram();  
+    
+        System.out.println("\nBefore sorting array elements are: ");  
+        msp.printArray(array, size);  
+        msp.mergeSort(array, 0, size - 1);  
+    
+        System.out.println("\nAfter sorting array elements are: ");  
+        msp.printArray(array, size);  
+        System.out.println("");  
+    }  
+}  
