@@ -1,0 +1,26 @@
+//import library
+import java.util.*;  
+
+public class CollectionsProgram
+{  
+    //main function
+    public static void main(String args[])
+    {
+        //Creating string arraylist
+        ArrayList<String> numbers = new ArrayList<String>();  
+        
+        //Adding items to arraylist  
+        numbers.add("One");
+        numbers.add("Two");  
+        numbers.add("Three");  
+        numbers.add("Two");  
+
+        //Traversing arraylist through Iterator  
+        Iterator iter = numbers.iterator();  
+        System.out.println("The items in the collection are: ");
+        while(iter.hasNext())
+        {  
+            System.out.println(iter.next());  
+        }  
+    }  
+}  
