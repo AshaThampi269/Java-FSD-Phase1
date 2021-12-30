@@ -1,0 +1,57 @@
+package com.simplylearn.workshop;
+
+import java.util.*;
+
+public class CalculatorProgram {
+
+	public static void main(String[] args) {
+		
+		//variable declaration
+		double firstNumber, secondNumber;
+		char operator, choice;
+		
+		do
+		{
+			//scanner class
+			Scanner scan = new Scanner(System.in);
+		
+			//first number input
+			System.out.println("Enter the first number: ");
+			firstNumber = scan.nextDouble();
+		
+			//second number input
+			System.out.println("Enter the second number: ");
+			secondNumber = scan.nextDouble();
+		
+			//operator input
+			System.out.println("Enter an operation: ");
+			operator = scan.next().charAt(0);
+
+			//switch case
+			switch(operator)
+			{	
+				//addition
+				case '+': System.out.println("The sum is: " + (firstNumber + secondNumber));
+							break;
+		
+				//subtraction
+				case '-': System.out.println("The difference is: " + (firstNumber - secondNumber));
+					  		break;
+		  	 
+				//multiplication
+				case '*': System.out.println("The product is: " + (firstNumber * secondNumber));
+							break;
+			
+				//division
+				case '/': System.out.println("The remainder is: " + (firstNumber / secondNumber));
+			  		  		break;
+			  
+				default: System.out.println("Invalid operator !!");
+			}
+		
+			System.out.println("Do you want to continue (y/n):");
+			choice = scan.next().charAt(0);
+		}
+		while(choice == 'y');
+	}
+}
