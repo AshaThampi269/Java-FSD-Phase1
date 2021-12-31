@@ -1,0 +1,40 @@
+// Importing required classes
+import java.util.*;
+ 
+// Main class
+public class LinkedListProgram{
+ 
+    // Main driver method
+    public static void main(String args[])
+    {
+        // Creating object of the class linked list
+        LinkedList<String> numbers = new LinkedList<String>();
+ 
+        // Adding elements to the linked list
+        numbers.add("Second");
+        System.out.println("\n\nAdd by element name: " + numbers);
+        numbers.addLast("Fourth");
+        System.out.println("Add last element: " + numbers);
+        numbers.addFirst("First");
+        System.out.println("Add first element: " + numbers);
+        numbers.add("Fifth");
+        numbers.add(2, "Third");
+        System.out.println("Add element by index: " + numbers + "\n");
+ 
+        System.out.println(numbers);
+        System.out.println(" ");
+        for(String s:numbers )
+        {
+            System.out.print(s + "->");
+        }
+ 
+        numbers.remove("Fifth");
+        System.out.println("\n\nRemove by element name: " + numbers);
+        numbers.remove(0);
+        System.out.println("Remove by index: " + numbers);
+        numbers.removeFirst();
+        System.out.println("Remove first element: " + numbers);
+        numbers.removeLast();
+        System.out.println("Remove last element: " + numbers);
+    }
+}
