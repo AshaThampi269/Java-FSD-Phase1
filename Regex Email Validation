@@ -1,0 +1,42 @@
+package com.emailValidation;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class EmailValidation 
+{
+	public static void main(String args[]){  
+		
+		int i, n;
+		String emailId;
+		Scanner sc = new Scanner (System.in);
+        ArrayList<String> emails = new ArrayList<String>();  
+        
+        System.out.println("Enter the number of emails to be inserted:");
+        n = sc.nextInt();
+        
+        System.out.println("Enter the list of emails: \n");
+        for(i = 0; i < n; i++)
+        {
+        	emailId = sc.next();
+        	emails.add(emailId);
+        }
+         
+        //Regular Expression for email   
+        String regex = "^(.+)@(.+)$";  
+        
+        //Compile regular expression to get the pattern
+        System.out.println("");
+        Pattern pattern = Pattern.compile(regex);
+        
+        //Iterate through the email list  
+        for(String email : emails){     
+            Matcher matcher = pattern.matcher(email);  
+            System.out.println(email +" : "+ matcher.matches()+"\n");  
+        }  
+        
+        sc.close();
+    }  
+}
